@@ -1,8 +1,9 @@
-package com.modtion.fightcovid
+package com.modtion.fightcovid.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.modtion.fightcovid.R
 import com.modtion.fightcovid.fragment.MapFragment
 import com.modtion.fightcovid.fragment.HomeFragment
 import kotlinx.android.synthetic.main.activity_main.*
@@ -33,7 +34,8 @@ class MainActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.fragment_container,
+                .replace(
+                    R.id.fragment_container,
                     fragment, fragment::class.java.simpleName)
                 .commit()
         }

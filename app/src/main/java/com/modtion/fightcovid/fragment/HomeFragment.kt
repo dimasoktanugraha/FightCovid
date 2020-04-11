@@ -7,19 +7,23 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
-import com.modtion.fightcovid.LoginActivity
 import com.modtion.fightcovid.R
+import com.modtion.fightcovid.activity.LoginActivity
 import com.modtion.fightcovid.model.Users
+import com.modtion.fightcovid.viewmodel.HomeViewModel
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment: Fragment() {
 
     var refUser: DatabaseReference? = null
     var firebaseUser: FirebaseUser? = null
+    private lateinit var viewModel: HomeViewModel
 
     companion object{
         fun newInstance() : HomeFragment{
@@ -35,6 +39,9 @@ class HomeFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[HomeViewModel::class.java]
+        viewModel.getHome()
 
         firebaseUser = FirebaseAuth.getInstance().currentUser
         refUser = FirebaseDatabase.getInstance().reference.child("Users").child(firebaseUser!!.uid)

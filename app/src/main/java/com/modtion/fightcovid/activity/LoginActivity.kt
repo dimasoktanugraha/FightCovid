@@ -1,4 +1,4 @@
-package com.modtion.fightcovid
+package com.modtion.fightcovid.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +9,7 @@ import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.modtion.fightcovid.R
 import kotlinx.android.synthetic.main.activity_login.*
 import java.text.SimpleDateFormat
 import java.util.*
