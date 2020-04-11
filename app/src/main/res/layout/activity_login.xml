@@ -157,6 +157,17 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"/>
 
+        <ProgressBar
+            android:id="@+id/login_progress"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:indeterminateTint="@android:color/white"
+            android:translationZ="@dimen/_4sdp"
+            app:layout_constraintTop_toTopOf="@id/login_btn_executer"
+            app:layout_constraintBottom_toBottomOf="@id/login_btn_executer"
+            app:layout_constraintStart_toStartOf="@id/login_btn_executer"
+            app:layout_constraintEnd_toEndOf="@id/login_btn_executer"/>
+
 
         <TextView
             android:id="@+id/login_move_desc"

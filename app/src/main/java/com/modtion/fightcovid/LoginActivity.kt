@@ -30,6 +30,7 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK))
             finish()
         }
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,36 +58,46 @@ class LoginActivity : AppCompatActivity() {
         val password = login_password.editText!!.text.toString().trim()
         val date = login_date.editText!!.text.toString().trim()
 
-        when{
-            email.isEmpty() -> {
-                login_email.error = "Require your email"
-                return
-            }
-            username.isEmpty() -> {
-                if (inRegister){
+        if (inRegister){
+            when{
+                email.isEmpty() -> {
+                    login_email.error = "Require your email"
+                    return
+                }
+                username.isEmpty() -> {
                     login_name.error = "Require username"
                     return
                 }
-            }
-            password.isEmpty() -> {
-                login_password.error = "Require password"
-                return
-            }
-            date.isEmpty() -> {
-                if (inRegister){
+                password.isEmpty() -> {
+                    login_password.error = "Require password"
+                    return
+                }
+                date.isEmpty() -> {
                     login_date.error = "Require your birthday"
                     return
                 }
-            }
-            else ->{
-                clearError()
-                if (inRegister){
+                else ->{
+                    clearError()
                     register(username, email, password)
-                }else{
+                }
+            }
+        }else{
+            when{
+                email.isEmpty() -> {
+                    login_email.error = "Require your email"
+                    return
+                }
+                password.isEmpty() -> {
+                    login_password.error = "Require password"
+                    return
+                }
+                else ->{
+                    clearError()
                     login(email, password)
                 }
             }
         }
+
     }
 
     private fun clearError(){
@@ -103,7 +114,20 @@ class LoginActivity : AppCompatActivity() {
         login_edt_date.setText("")
     }
 
+    private fun showProgress(){
+        login_progress.visibility = View.VISIBLE
+        login_btn_executer.text = ""
+        login_btn_executer.isEnabled = false
+    }
+
+    private fun hideProgress(text: String){
+        login_progress.visibility = View.GONE
+        login_btn_executer.text = text
+        login_btn_executer.isEnabled = true
+    }
+
     private fun register(username: String, email: String, password: String) {
+        showProgress()
         auth.createUserWithEmailAndPassword(email,password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful){
@@ -122,25 +146,31 @@ class LoginActivity : AppCompatActivity() {
                     refUser.updateChildren(userHashMap)
                         .addOnCompleteListener { task ->
                             if (task.isSuccessful){
+                                hideProgress("")
                                 uiLogin()
                             }else{
+                                hideProgress("REGISTER")
                                 Toast.makeText(this, "insert failed : "+task.exception!!.message, Toast.LENGTH_SHORT).show()
                             }
                         }
 
                 }else{
+                    hideProgress("REGISTER")
                     Toast.makeText(this, "register failed : "+task.exception!!.message, Toast.LENGTH_SHORT).show()
                 }
             }
     }
 
     private fun login(email: String, password: String) {
+        showProgress()
         auth.signInWithEmailAndPassword(email,password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful){
+                    hideProgress("LOGIN")
                     startActivity(Intent(this, MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK))
                     finish()
                 }else{
+                    hideProgress("LOGIN")
                     Toast.makeText(this, "login failed : "+task.exception!!.message, Toast.LENGTH_SHORT).show()
                 }
             }
@@ -176,6 +206,7 @@ class LoginActivity : AppCompatActivity() {
         login_date.visibility = View.VISIBLE
         login_move_desc.text = "Already have an account? "
         login_move.text = "Login"
+        login_btn_executer.text = "REGISTER"
     }
 
     private fun uiLogin() {
@@ -185,5 +216,6 @@ class LoginActivity : AppCompatActivity() {
         login_date.visibility = View.GONE
         login_move_desc.text = "Don't have an account? "
         login_move.text = "Register"
+        login_btn_executer.text = "LOGIN"
     }
 }
