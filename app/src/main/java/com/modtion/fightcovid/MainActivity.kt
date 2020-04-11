@@ -13,12 +13,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //LOGOUT
-//        main_logout.setOnClickListener {
-//            FirebaseAuth.getInstance().signOut()
-//            startActivity(Intent(this, LoginActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK))
-//            finish()
-//        }
+        supportActionBar!!.elevation = 0.0f
 
         bottom_navigation.setOnNavigationItemSelectedListener {
             when(it.itemId){

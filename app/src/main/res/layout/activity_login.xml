@@ -166,7 +166,8 @@
             app:layout_constraintTop_toTopOf="@id/login_btn_executer"
             app:layout_constraintBottom_toBottomOf="@id/login_btn_executer"
             app:layout_constraintStart_toStartOf="@id/login_btn_executer"
-            app:layout_constraintEnd_toEndOf="@id/login_btn_executer"/>
+            app:layout_constraintEnd_toEndOf="@id/login_btn_executer"
+            android:visibility="gone"/>
 
 
         <TextView

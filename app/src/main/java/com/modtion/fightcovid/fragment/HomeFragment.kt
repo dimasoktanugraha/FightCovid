@@ -1,14 +1,25 @@
 package com.modtion.fightcovid.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.*
+import com.modtion.fightcovid.LoginActivity
 import com.modtion.fightcovid.R
+import com.modtion.fightcovid.model.Users
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment: Fragment() {
+
+    var refUser: DatabaseReference? = null
+    var firebaseUser: FirebaseUser? = null
 
     companion object{
         fun newInstance() : HomeFragment{
@@ -25,12 +36,35 @@ class HomeFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        Glide.with(this)
-//            .load("https://upload.wikimedia.org/wikipedia/commons/8/87/Ahmad_Dahlan.jpg")
-//            .placeholder(R.drawable.bg_circle_gray)
-//            .error(R.drawable.bg_circle_gray)
-//            .fallback(R.drawable.bg_circle_gray)
-//            .circleCrop()
-//            .into(img)
+        firebaseUser = FirebaseAuth.getInstance().currentUser
+        refUser = FirebaseDatabase.getInstance().reference.child("Users").child(firebaseUser!!.uid)
+        refUser!!.addValueEventListener(object : ValueEventListener {
+            override fun onCancelled(p0: DatabaseError) {
+                Toast.makeText(activity, p0.toException().toString()+"/"+p0.message, Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+                if (p0.exists()){
+                    val user: Users? = p0.getValue(Users::class.java)
+
+                    home_name.text = user!!.username
+                    home_age.text = user.age
+                    home_status.text = user.status
+                    Glide.with(activity!!)
+                        .load(user.image)
+                        .placeholder(R.drawable.bg_circle_gray)
+                        .error(R.drawable.bg_circle_gray)
+                        .fallback(R.drawable.bg_circle_gray)
+                        .circleCrop()
+                        .into(home_image)
+                }
+            }
+        })
+
+        home_logout.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            startActivity(Intent(activity, LoginActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK))
+            activity!!.finish()
+        }
     }
 }
