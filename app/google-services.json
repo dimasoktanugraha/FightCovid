@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "428794853177",
+    "firebase_url": "https://covid-19-dc148.firebaseio.com",
+    "project_id": "covid-19-dc148",
+    "storage_bucket": "covid-19-dc148.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:428794853177:android:66ea0952f915e47b995ae8",
+        "android_client_info": {
+          "package_name": "com.modtion.fightcovid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "428794853177-ef10c9s7ip67gsask4qkoluuk1e7378e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.modtion.fightcovid",
+            "certificate_hash": "446876c3762fae6f3ca012d14a7ab07eb0e55853"
+          }
+        },
+        {
+          "client_id": "428794853177-unl666v1utljua6vn9id15flctcnlnhr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCTcNQ4EYQDiCfIK5SkYdRmu0dgXYMsDg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "428794853177-unl666v1utljua6vn9id15flctcnlnhr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,22 +1,42 @@
 package com.modtion.fightcovid
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_login.*
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.HashMap
 
 class LoginActivity : AppCompatActivity() {
 
+    private lateinit var auth: FirebaseAuth
+    private lateinit var refUser: DatabaseReference
+    private var firebaseUserID: String = ""
+
     private var age: Int = 0
+    private var date: String = ""
     private var isRegister: Boolean = true
+
+    override fun onStart() {
+        super.onStart()
+        if (auth.currentUser!=null){
+            startActivity(Intent(this, MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK))
+            finish()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        auth = FirebaseAuth.getInstance()
 
         login_move.setOnClickListener {
             if (isRegister) uiLogin() else uiRegister()
@@ -84,11 +104,46 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun register(username: String, email: String, password: String) {
-        Toast.makeText(this, "register "+username+email+password, Toast.LENGTH_SHORT).show()
+        auth.createUserWithEmailAndPassword(email,password)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful){
+                    firebaseUserID = auth.currentUser!!.uid
+
+                    refUser = FirebaseDatabase.getInstance().reference.child("Users").child(firebaseUserID)
+                    val userHashMap = HashMap<String, Any>()
+                    userHashMap["uid"] = firebaseUserID
+                    userHashMap["username"] = username
+                    userHashMap["email"] = email
+                    userHashMap["birth"] = date
+                    userHashMap["age"] = age.toString()
+                    userHashMap["image"] = "https://firebasestorage.googleapis.com/v0/b/covid-19-dc148.appspot.com/o/profile.png?alt=media&token=04a69209-0ebb-4a48-b27d-01a4e77c53d5"
+                    userHashMap["status"] = "no status"
+
+                    refUser.updateChildren(userHashMap)
+                        .addOnCompleteListener { task ->
+                            if (task.isSuccessful){
+                                uiLogin()
+                            }else{
+                                Toast.makeText(this, "insert failed : "+task.exception!!.message, Toast.LENGTH_SHORT).show()
+                            }
+                        }
+
+                }else{
+                    Toast.makeText(this, "register failed : "+task.exception!!.message, Toast.LENGTH_SHORT).show()
+                }
+            }
     }
 
     private fun login(email: String, password: String) {
-        Toast.makeText(this, "login "+email+password, Toast.LENGTH_SHORT).show()
+        auth.signInWithEmailAndPassword(email,password)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful){
+                    startActivity(Intent(this, MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK))
+                    finish()
+                }else{
+                    Toast.makeText(this, "login failed : "+task.exception!!.message, Toast.LENGTH_SHORT).show()
+                }
+            }
     }
 
     private fun showDate() {
@@ -109,8 +164,8 @@ class LoginActivity : AppCompatActivity() {
             if (calToday.get(Calendar.DAY_OF_YEAR) < calBirth.get(Calendar.DAY_OF_YEAR))
                 age--
 
-            login_edt_date.setText(sdf.format(netDate).toString())
-            Toast.makeText(this, age.toString(), Toast.LENGTH_SHORT).show()
+            date = sdf.format(netDate).toString()
+            login_edt_date.setText(date)
         }
     }
 
