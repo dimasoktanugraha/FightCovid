@@ -59,6 +59,7 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
             else ->{
+                clearError()
                 if (inRegister){
                     register(username, email, password)
                 }else{
@@ -68,12 +69,26 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun register(username: String, email: String, password: String) {
+    private fun clearError(){
+        login_email.error = null
+        login_name.error = null
+        login_password.error = null
+        login_date.error = null
+    }
 
+    private fun clearData(){
+        login_edt_email.setText("")
+        login_edt_name.setText("")
+        login_edt_password.setText("")
+        login_edt_date.setText("")
+    }
+
+    private fun register(username: String, email: String, password: String) {
+        Toast.makeText(this, "register "+username+email+password, Toast.LENGTH_SHORT).show()
     }
 
     private fun login(email: String, password: String) {
-
+        Toast.makeText(this, "login "+email+password, Toast.LENGTH_SHORT).show()
     }
 
     private fun showDate() {
@@ -101,7 +116,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun uiRegister() {
         isRegister = true
-
+        clearData()
         login_name.visibility = View.VISIBLE
         login_date.visibility = View.VISIBLE
         login_move_desc.text = "Already have an account? "
@@ -110,10 +125,10 @@ class LoginActivity : AppCompatActivity() {
 
     private fun uiLogin() {
         isRegister = false
-
+        clearData()
         login_name.visibility = View.GONE
         login_date.visibility = View.GONE
-        login_move_desc.text = "Don't you have an account? "
+        login_move_desc.text = "Don't have an account? "
         login_move.text = "Register"
     }
 }
