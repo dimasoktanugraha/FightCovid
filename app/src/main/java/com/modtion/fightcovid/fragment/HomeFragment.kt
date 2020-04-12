@@ -43,6 +43,8 @@ class HomeFragment: Fragment() {
 
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[HomeViewModel::class.java]
         home_progress.visibility = View.VISIBLE
+        indo_container.visibility = View.GONE
+        all_container.visibility = View.GONE
         home_shimmer.startShimmerAnimation()
 
         firebaseUser = FirebaseAuth.getInstance().currentUser
@@ -167,7 +169,7 @@ class HomeFragment: Fragment() {
                     }
                     StatusResponse.SUCCESS -> {
                         indo_container.visibility = View.VISIBLE
-                        global_container.visibility = View.VISIBLE
+                        all_container.visibility = View.VISIBLE
 
                         global_death.text = data.body!!.value
                         home_shimmer.stopShimmerAnimation()
