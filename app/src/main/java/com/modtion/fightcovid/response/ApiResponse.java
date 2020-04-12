@@ -3,10 +3,10 @@ package com.modtion.fightcovid.response;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import static ai.widya.healthatm.response.StatusResponse.EMPTY;
-import static ai.widya.healthatm.response.StatusResponse.ERROR;
-import static ai.widya.healthatm.response.StatusResponse.LOADING;
-import static ai.widya.healthatm.response.StatusResponse.SUCCESS;
+import static com.modtion.fightcovid.response.StatusResponse.EMPTY;
+import static com.modtion.fightcovid.response.StatusResponse.ERROR;
+import static com.modtion.fightcovid.response.StatusResponse.LOADING;
+import static com.modtion.fightcovid.response.StatusResponse.SUCCESS;
 
 
 public class ApiResponse<T> {

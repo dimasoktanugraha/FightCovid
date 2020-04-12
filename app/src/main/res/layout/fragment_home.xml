@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:shimmer="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -30,15 +31,27 @@
         app:layout_constraintRight_toRightOf="parent"/>
 
     <ImageView
+        android:id="@+id/home_image"
         android:layout_width="@dimen/_80sdp"
         android:layout_height="@dimen/_80sdp"
-        android:id="@+id/home_image"
         android:translationZ="@dimen/_4sdp"
         android:src="@drawable/bg_circle_gray"
         android:layout_marginTop="@dimen/_20sdp"
         android:layout_marginStart="@dimen/_20sdp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
+
+    <ProgressBar
+        android:id="@+id/home_progress"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:translationZ="@dimen/_6sdp"
+        android:indeterminateTint="@color/colorPrimaryDark"
+        app:layout_constraintTop_toTopOf="@id/home_image"
+        app:layout_constraintLeft_toLeftOf="@id/home_image"
+        app:layout_constraintRight_toRightOf="@id/home_image"
+        app:layout_constraintBottom_toBottomOf="@id/home_image"
+        android:visibility="gone"/>
 
     <TextView
         android:id="@+id/home_name"
@@ -95,6 +108,29 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/circle_top"/>
 
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/home_shimmer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        shimmer:duration="800"
+        android:translationZ="@dimen/_4sdp"
+        app:layout_constraintTop_toBottomOf="@id/circle_bg"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include layout="@layout/item_home"/>
+            <include layout="@layout/item_home" />
+
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/global_container"
         android:layout_width="match_parent"
@@ -104,7 +140,8 @@
         app:cardCornerRadius="@dimen/_6sdp"
         android:elevation="@dimen/_2sdp"
         android:layout_marginTop="@dimen/_30sdp"
-        app:layout_constraintTop_toBottomOf="@id/circle_bg">
+        app:layout_constraintTop_toBottomOf="@id/circle_bg"
+        android:visibility="gone">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -240,7 +277,8 @@
         app:cardCornerRadius="@dimen/_6sdp"
         android:elevation="@dimen/_2sdp"
         android:layout_marginTop="@dimen/_30sdp"
-        app:layout_constraintTop_toBottomOf="@id/global_container">
+        app:layout_constraintTop_toBottomOf="@id/global_container"
+        android:visibility="gone">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

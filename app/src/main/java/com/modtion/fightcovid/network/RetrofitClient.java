@@ -12,7 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
     private static Retrofit retrofit = null;
-    private static final String BASE_URL = "http://atm.widya.ai:5555";
+    private static final String BASE_URL = "https://api.kawalcorona.com/";
     private static RetrofitClient mInstance;
 
     public static Retrofit getClient() {
