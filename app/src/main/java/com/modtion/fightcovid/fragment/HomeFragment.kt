@@ -86,93 +86,98 @@ class HomeFragment: Fragment() {
 
     private fun getData() {
         viewModel.getDataIndonesia().observe(requireActivity(), Observer { data ->
-            run {
-                if (data != null) {
-                    when (data.status) {
-                        StatusResponse.LOADING -> {
+            if (data != null) {
+                when (data.status) {
+                    StatusResponse.LOADING -> {
 
-                        }
-                        StatusResponse.SUCCESS -> {
-                            val indoData = data.body!![0]
-                            indo_death.text = indoData.meninggal
-                            indo_heal.text = indoData.sembuh
-                            indo_positif.text = indoData.positif
-                            val total = indoData.meninggal.toInt()+indoData.sembuh.toInt()+indoData.positif.toInt()
-                            indo_total.text = total.toString()
+                    }
+                    StatusResponse.SUCCESS -> {
 
-                            getDataGlobal()
-                        }
-                        StatusResponse.EMPTY -> {
+                        val indoData = data.body!![0]
+                        indo_death.text = indoData.meninggal
+                        indo_heal.text = indoData.sembuh
+                        indo_positif.text = indoData.positif
+//                        val total = indoData.meninggal.toInt()+indoData.sembuh.toInt()+indoData.positif.toInt()
+//                        indo_total.text = total.toString()
 
-                        }
-                        StatusResponse.ERROR -> {
+                        getDataGlobalPositif()
+                    }
+                    StatusResponse.EMPTY -> {
 
-                        }
+                    }
+                    StatusResponse.ERROR -> {
+                        Toast.makeText(activity, data.message, Toast.LENGTH_SHORT).show()
                     }
                 }
             }
         })
     }
 
-    private fun getDataGlobal() {
+    private fun getDataGlobalPositif() {
         viewModel.getPositif().observe(requireActivity(), Observer { data ->
-            run {
-                if (data != null) {
-                    when (data.status) {
-                        StatusResponse.LOADING -> {
+            if (data != null) {
+                when (data.status) {
+                    StatusResponse.LOADING -> {
 
-                        }
-                        StatusResponse.SUCCESS -> {
-                            global_positif.text = data.body!!.value
-                        }
-                        StatusResponse.EMPTY -> {
+                    }
+                    StatusResponse.SUCCESS -> {
+                        global_positif.text = data.body!!.value
 
-                        }
-                        StatusResponse.ERROR -> {
+                        getDataGlobalRecovered()
+                    }
+                    StatusResponse.EMPTY -> {
 
-                        }
+                    }
+                    StatusResponse.ERROR -> {
+                        Toast.makeText(activity, data.message, Toast.LENGTH_SHORT).show()
                     }
                 }
             }
         })
+    }
 
+    private fun getDataGlobalRecovered() {
         viewModel.getRecovered().observe(requireActivity(), Observer { data ->
-            run {
-                if (data != null) {
-                    when (data.status) {
-                        StatusResponse.LOADING -> {
+            if (data != null) {
+                when (data.status) {
+                    StatusResponse.LOADING -> {
 
-                        }
-                        StatusResponse.SUCCESS -> {
-                            global_heal.text = data.body!!.value
-                        }
-                        StatusResponse.EMPTY -> {
+                    }
+                    StatusResponse.SUCCESS -> {
+                        global_heal.text = data.body!!.value
+                        getDataGlobalDied()
+                    }
+                    StatusResponse.EMPTY -> {
 
-                        }
-                        StatusResponse.ERROR -> {
-
-                        }
+                    }
+                    StatusResponse.ERROR -> {
+                        Toast.makeText(activity, data.message, Toast.LENGTH_SHORT).show()
                     }
                 }
             }
         })
+    }
 
+    private fun getDataGlobalDied() {
         viewModel.getDied().observe(requireActivity(), Observer { data ->
-            run {
-                if (data != null) {
-                    when (data.status) {
-                        StatusResponse.LOADING -> {
+            if (data != null) {
+                when (data.status) {
+                    StatusResponse.LOADING -> {
 
-                        }
-                        StatusResponse.SUCCESS -> {
-                            global_death.text = data.body!!.value
-                        }
-                        StatusResponse.EMPTY -> {
+                    }
+                    StatusResponse.SUCCESS -> {
+                        indo_container.visibility = View.VISIBLE
+                        global_container.visibility = View.VISIBLE
 
-                        }
-                        StatusResponse.ERROR -> {
+                        global_death.text = data.body!!.value
+                        home_shimmer.stopShimmerAnimation()
+                        home_shimmer.visibility = View.GONE
+                    }
+                    StatusResponse.EMPTY -> {
 
-                        }
+                    }
+                    StatusResponse.ERROR -> {
+                        Toast.makeText(activity, data.message, Toast.LENGTH_SHORT).show()
                     }
                 }
             }

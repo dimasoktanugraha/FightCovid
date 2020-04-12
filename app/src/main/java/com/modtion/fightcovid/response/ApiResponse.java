@@ -30,8 +30,8 @@ public class ApiResponse<T> {
         return new ApiResponse<>(SUCCESS, body, null);
     }
 
-    public static <T> ApiResponse<T> empty(String msg, @Nullable T body) {
-        return new ApiResponse<>(EMPTY, body, msg);
+    public static <T> ApiResponse<T> empty(String msg) {
+        return new ApiResponse<>(EMPTY, null, msg);
     }
 
     public static <T> ApiResponse<T> error(String msg) {

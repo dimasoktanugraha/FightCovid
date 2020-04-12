@@ -15,7 +15,6 @@ import java.util.*
 
 class HomeViewModel: ViewModel() {
 
-//    private var loginData: MutableLiveData<ApiResponse<LoginResponse>>? = null
     private val compositeDisposable = CompositeDisposable()
 
     fun getDataIndonesia(): LiveData<ApiResponse<List<IndonesiaCase>>> {
@@ -31,7 +30,7 @@ class HomeViewModel: ViewModel() {
                     if (value!=null) {
                         data.setValue(ApiResponse.success(value))
                     } else {
-                        data.setValue(ApiResponse.empty("null", value))
+                        data.setValue(ApiResponse.empty("null"))
                     }
                 }, { throwable -> data.setValue(ApiResponse.error(throwable.localizedMessage)) })
         )
@@ -51,7 +50,7 @@ class HomeViewModel: ViewModel() {
                     if (value!=null) {
                         data.setValue(ApiResponse.success(value))
                     } else {
-                        data.setValue(ApiResponse.empty("null", value))
+                        data.setValue(ApiResponse.empty("null"))
                     }
                 }, { throwable -> data.setValue(ApiResponse.error(throwable.localizedMessage)) })
         )
@@ -71,7 +70,7 @@ class HomeViewModel: ViewModel() {
                     if (value!=null) {
                         data.setValue(ApiResponse.success(value))
                     } else {
-                        data.setValue(ApiResponse.empty("null", value))
+                        data.setValue(ApiResponse.empty("null"))
                     }
                 }, { throwable -> data.setValue(ApiResponse.error(throwable.localizedMessage)) })
         )
@@ -91,7 +90,7 @@ class HomeViewModel: ViewModel() {
                     if (value!=null) {
                         data.setValue(ApiResponse.success(value))
                     } else {
-                        data.setValue(ApiResponse.empty("null", value))
+                        data.setValue(ApiResponse.empty("null"))
                     }
                 }, { throwable -> data.setValue(ApiResponse.error(throwable.localizedMessage)) })
         )
