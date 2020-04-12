@@ -1,3 +1,77 @@
 <resources>
     <string name="app_name">Fight Covid</string>
+
+    <array name="maps_full">
+        <item>@drawable/ic_jawa_jakarta_full</item>
+        <item>@drawable/ic_jawa_jabar_full</item>
+        <item>@drawable/ic_jawa_jatim_full</item>
+        <item>@drawable/ic_jawa_banten_full</item>
+        <item>@drawable/ic_sul_sulsel_full</item>
+        <item>@drawable/ic_jawa_jateng_full</item>
+        <item>@drawable/ic_jawa_bali_full</item>
+        <item>@drawable/ic_sum_sumut_full</item>
+        <item>@drawable/ic_pap_papua_full</item>
+        <item>@drawable/ic_sum_sumbar_full</item>
+        <item>@drawable/ic_jawa_jogja_full</item>
+        <item>@drawable/ic_jawa_ntb_full</item>
+        <item>@drawable/ic_kaltim_full</item>
+        <item>@drawable/ic_kalsel_full</item>
+        <item>@drawable/ic_kalteng_full</item>
+        <item>@drawable/ic_sum_sumsel_full</item>
+        <item>@drawable/ic_sum_kepri_full</item>
+        <item>@drawable/ic_sum_lampung_full</item>
+        <item>@drawable/ic_sul_sultengah_full</item>
+        <item>@drawable/ic_sul_sulut_full</item>
+        <item>@drawable/ic_sum_riau_full</item>
+        <item>@drawable/ic_kalut_full</item>
+        <item>@drawable/ic_sul_sultenggara_full</item>
+        <item>@drawable/ic_kalbar_full</item>
+        <item>@drawable/ic_pap_maluku_full</item>
+        <item>@drawable/ic_sum_aceh_full</item>
+        <item>@drawable/ic_sul_sulbar_full</item>
+        <item>@drawable/ic_sum_jambi_full</item>
+        <item>@drawable/ic_sum_bengkulu_full</item>
+        <item>@drawable/ic_sum_bangkabelitung_full</item>
+        <item>@drawable/ic_pap_papbar_full</item>
+        <item>@drawable/ic_pap_malut_full</item>
+        <item>@drawable/ic_jawa_ntt_full</item>
+        <item>@drawable/ic_sul_gorontalo_full</item>
+    </array>
+
+    <array name="maps_detail">
+        <item>@drawable/ic_jawa_jakarta</item>
+        <item>@drawable/ic_jawa_jabar</item>
+        <item>@drawable/ic_jawa_jatim</item>
+        <item>@drawable/ic_jawa_banten</item>
+        <item>@drawable/ic_sul_sulsel</item>
+        <item>@drawable/ic_jawa_jateng</item>
+        <item>@drawable/ic_jawa_bali</item>
+        <item>@drawable/ic_sum_sumut</item>
+        <item>@drawable/ic_pap_papua</item>
+        <item>@drawable/ic_sum_sumbar</item>
+        <item>@drawable/ic_jawa_jogja</item>
+        <item>@drawable/ic_jawa_ntb</item>
+        <item>@drawable/ic_kaltim</item>
+        <item>@drawable/ic_kalsel</item>
+        <item>@drawable/ic_kalteng</item>
+        <item>@drawable/ic_sum_sumsel</item>
+        <item>@drawable/ic_sum_kepri</item>
+        <item>@drawable/ic_sum_lampung</item>
+        <item>@drawable/ic_sul_sultengah</item>
+        <item>@drawable/ic_sul_sulut</item>
+        <item>@drawable/ic_sum_riau</item>
+        <item>@drawable/ic_kalut</item>
+        <item>@drawable/ic_sul_sultenggara</item>
+        <item>@drawable/ic_kalbar</item>
+        <item>@drawable/ic_pap_maluku</item>
+        <item>@drawable/ic_sum_aceh</item>
+        <item>@drawable/ic_sul_sulbar</item>
+        <item>@drawable/ic_sum_jambi</item>
+        <item>@drawable/ic_sum_bengkulu</item>
+        <item>@drawable/ic_sum_bangkabelitung</item>
+        <item>@drawable/ic_pap_papbar</item>
+        <item>@drawable/ic_pap_malut</item>
+        <item>@drawable/ic_jawa_ntt</item>
+        <item>@drawable/ic_sul_gorontalo</item>
+    </array>
 </resources>

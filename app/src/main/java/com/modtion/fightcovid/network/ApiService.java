@@ -3,6 +3,7 @@ package com.modtion.fightcovid.network;
 
 import com.modtion.fightcovid.model.BaseResponse;
 import com.modtion.fightcovid.model.IndonesiaCase;
+import com.modtion.fightcovid.model.ProvinceAttribut;
 
 import java.util.HashMap;
 import java.util.List;
@@ -25,6 +26,9 @@ public interface ApiService {
 
     @GET("meninggal")
     Observable<BaseResponse> getGlobalDied();
+
+    @GET("indonesia/provinsi")
+    Observable<List<ProvinceAttribut>> getProvinceIndonesia();
 
 }
 
