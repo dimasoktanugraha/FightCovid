@@ -96,6 +96,7 @@
         app:layout_constraintTop_toBottomOf="@id/circle_top"/>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/global_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_20sdp"
@@ -105,19 +106,265 @@
         android:layout_marginTop="@dimen/_30sdp"
         app:layout_constraintTop_toBottomOf="@id/circle_bg">
 
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/global"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:src="@drawable/earth"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="status"
-                android:textSize="@dimen/_12ssp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginStart="@dimen/_20sdp"/>
+                tools:text="GLOBAL"
+                android:textSize="@dimen/_14ssp"
+                android:textColor="@color/colorPrimaryDark"
+                app:layout_constraintTop_toBottomOf="@id/global"
+                app:layout_constraintStart_toStartOf="@id/global"
+                app:layout_constraintEnd_toEndOf="@id/global"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_10sdp"/>
 
-        </RelativeLayout>
+            <TextView
+                android:id="@+id/global_heal_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_heal"
+                android:drawablePadding="@dimen/_10sdp"
+                android:text="HEAL"
+                android:textSize="@dimen/_10ssp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_30sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/global"/>
+
+            <TextView
+                android:id="@+id/global_heal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_20ssp"
+                app:layout_constraintTop_toBottomOf="@id/global_heal_title"
+                app:layout_constraintStart_toStartOf="@id/global_heal_title"
+                app:layout_constraintEnd_toEndOf="@id/global_heal_title"/>
+
+            <TextView
+                android:id="@+id/global_positif_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_positif"
+                android:drawablePadding="@dimen/_10sdp"
+                android:text="POSITIF"
+                android:textSize="@dimen/_10ssp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_30sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/global_heal_title"/>
+
+            <TextView
+                android:id="@+id/global_positif"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_20ssp"
+                app:layout_constraintTop_toBottomOf="@id/global_positif_title"
+                app:layout_constraintStart_toStartOf="@id/global_positif_title"
+                app:layout_constraintEnd_toEndOf="@id/global_positif_title"/>
+
+            <TextView
+                android:id="@+id/global_death_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_death"
+                android:drawablePadding="@dimen/_10sdp"
+                android:text="DIED"
+                android:textSize="@dimen/_10ssp"
+                android:layout_marginTop="@dimen/_15sdp"
+                app:layout_constraintTop_toBottomOf="@id/global_heal"
+                app:layout_constraintStart_toStartOf="@id/global_heal_title"/>
+
+            <TextView
+                android:id="@+id/global_death"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_20ssp"
+                app:layout_constraintTop_toBottomOf="@id/global_death_title"
+                app:layout_constraintStart_toStartOf="@id/global_death_title"
+                app:layout_constraintEnd_toEndOf="@id/global_death_title"/>
+
+            <TextView
+                android:id="@+id/global_total_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_case"
+                android:drawablePadding="@dimen/_10sdp"
+                android:text="CASE"
+                android:textSize="@dimen/_10ssp"
+                android:layout_marginTop="@dimen/_15sdp"
+                app:layout_constraintTop_toBottomOf="@id/global_positif"
+                app:layout_constraintStart_toStartOf="@id/global_positif_title"/>
+
+            <TextView
+                android:id="@+id/global_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_20ssp"
+                app:layout_constraintTop_toBottomOf="@id/global_total_title"
+                app:layout_constraintStart_toStartOf="@id/global_total_title"
+                app:layout_constraintEnd_toEndOf="@id/global_total_title"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/indo_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        app:cardCornerRadius="@dimen/_6sdp"
+        android:elevation="@dimen/_2sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        app:layout_constraintTop_toBottomOf="@id/global_container">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/indo"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:src="@drawable/indo"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="INDONESIA"
+                android:textSize="@dimen/_14ssp"
+                android:textColor="@color/colorPrimaryDark"
+                app:layout_constraintTop_toBottomOf="@id/indo"
+                app:layout_constraintStart_toStartOf="@id/indo"
+                app:layout_constraintEnd_toEndOf="@id/indo"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_10sdp"/>
+
+            <TextView
+                android:id="@+id/indo_heal_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_heal"
+                android:drawablePadding="@dimen/_10sdp"
+                android:text="HEAL"
+                android:textSize="@dimen/_10ssp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_30sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/indo"/>
+
+            <TextView
+                android:id="@+id/indo_heal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_20ssp"
+                app:layout_constraintTop_toBottomOf="@id/indo_heal_title"
+                app:layout_constraintStart_toStartOf="@id/indo_heal_title"
+                app:layout_constraintEnd_toEndOf="@id/indo_heal_title"/>
+
+            <TextView
+                android:id="@+id/indo_positif_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_positif"
+                android:drawablePadding="@dimen/_10sdp"
+                android:text="POSITIF"
+                android:textSize="@dimen/_10ssp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_30sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/indo_heal_title"/>
+
+            <TextView
+                android:id="@+id/indo_positif"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_20ssp"
+                app:layout_constraintTop_toBottomOf="@id/indo_positif_title"
+                app:layout_constraintStart_toStartOf="@id/indo_positif_title"
+                app:layout_constraintEnd_toEndOf="@id/indo_positif_title"/>
+
+            <TextView
+                android:id="@+id/indo_death_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_death"
+                android:drawablePadding="@dimen/_10sdp"
+                android:text="DIED"
+                android:textSize="@dimen/_10ssp"
+                android:layout_marginTop="@dimen/_15sdp"
+                app:layout_constraintTop_toBottomOf="@id/indo_heal"
+                app:layout_constraintStart_toStartOf="@id/indo_heal_title"/>
+
+            <TextView
+                android:id="@+id/indo_death"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_20ssp"
+                app:layout_constraintTop_toBottomOf="@id/indo_death_title"
+                app:layout_constraintStart_toStartOf="@id/indo_death_title"
+                app:layout_constraintEnd_toEndOf="@id/indo_death_title"/>
+
+            <TextView
+                android:id="@+id/indo_total_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_case"
+                android:drawablePadding="@dimen/_10sdp"
+                android:text="CASE"
+                android:textSize="@dimen/_10ssp"
+                android:layout_marginTop="@dimen/_15sdp"
+                app:layout_constraintTop_toBottomOf="@id/indo_positif"
+                app:layout_constraintStart_toStartOf="@id/indo_positif_title"/>
+
+            <TextView
+                android:id="@+id/indo_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_20ssp"
+                app:layout_constraintTop_toBottomOf="@id/indo_total_title"
+                app:layout_constraintStart_toStartOf="@id/indo_total_title"
+                app:layout_constraintEnd_toEndOf="@id/indo_total_title"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
