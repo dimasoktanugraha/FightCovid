@@ -88,8 +88,8 @@ class HomeFragment: Fragment() {
                     val user: Users? = p0.getValue(Users::class.java)
 
                     home_name.text = user!!.username
-                    home_age.text = user.age
-                    home_status.text = user.status
+                    home_age.text = user.age + " Tahun"
+//                    home_status.text = user.status
                     Glide.with(activity!!)
                         .load(user.image)
                         .placeholder(R.drawable.bg_circle_gray)
