@@ -1,15 +1,27 @@
 package com.modtion.fightcovid.fragment
 
+import android.Manifest
+import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.location.Address
+import android.location.Geocoder
+import android.location.Location
+import android.location.LocationManager
 import android.os.Bundle
+import android.os.Looper
+import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import com.google.android.gms.location.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
@@ -19,12 +31,19 @@ import com.modtion.fightcovid.model.Users
 import com.modtion.fightcovid.response.StatusResponse
 import com.modtion.fightcovid.viewmodel.HomeViewModel
 import kotlinx.android.synthetic.main.fragment_home.*
+import java.util.*
 
 class HomeFragment: Fragment() {
 
     var refUser: DatabaseReference? = null
     var firebaseUser: FirebaseUser? = null
     private lateinit var viewModel: HomeViewModel
+
+    private val permissions = arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION)
+    private val PERMISSION_ID = 10
+    private var lat: Double = 0.0
+    private var long: Double = 0.0
+    lateinit var mFusedLocationClient: FusedLocationProviderClient
 
     var positifGlobal = ""
     var sembuhGlobal = ""
@@ -44,6 +63,9 @@ class HomeFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity())
+        getLastLocation()
 
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[HomeViewModel::class.java]
         home_progress.visibility = View.VISIBLE
@@ -220,5 +242,110 @@ class HomeFragment: Fragment() {
                 }
             }
         })
+    }
+
+    //  LOCATION SECTION CODE
+    @SuppressLint("MissingPermission")
+    private fun getLastLocation() {
+        if (checkPermissions()) {
+            if (isLocationEnabled()) {
+
+                mFusedLocationClient.lastLocation.addOnCompleteListener(requireActivity()) { task ->
+                    var location: Location? = task.result
+                    if (location == null) {
+                        requestNewLocationData()
+                    } else {
+                        lat = location.latitude
+                        long = location.longitude
+                        getAddress(lat, long)
+                    }
+                }
+            } else {
+                Toast.makeText(activity, "Turn on location", Toast.LENGTH_LONG).show()
+                val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+                startActivity(intent)
+            }
+        } else {
+            requestPermissions()
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        getLastLocation()
+    }
+
+    @SuppressLint("MissingPermission")
+    private fun requestNewLocationData() {
+        var mLocationRequest = LocationRequest()
+        mLocationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
+        mLocationRequest.interval = 0
+        mLocationRequest.fastestInterval = 0
+        mLocationRequest.numUpdates = 1
+
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity())
+        mFusedLocationClient.requestLocationUpdates(
+            mLocationRequest, mLocationCallback,
+            Looper.myLooper()
+        )
+    }
+
+    private val mLocationCallback = object : LocationCallback() {
+        override fun onLocationResult(locationResult: LocationResult) {
+            var mLastLocation: Location = locationResult.lastLocation
+            lat = mLastLocation.latitude
+            long = mLastLocation.longitude
+            getAddress(lat, long)
+        }
+    }
+
+    private fun checkPermissions(): Boolean {
+        if (ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED &&
+            ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+            return true
+        }
+        return false
+    }
+
+    private fun requestPermissions() {
+        ActivityCompat.requestPermissions(requireActivity(), permissions,PERMISSION_ID)
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+        if (requestCode == PERMISSION_ID) {
+            if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                getLastLocation()
+            }
+        }
+    }
+
+    private fun isLocationEnabled(): Boolean {
+        var locationManager: LocationManager = requireActivity().getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(
+            LocationManager.NETWORK_PROVIDER
+        )
+    }
+
+    private fun getAddress(latitude: Double, longitude: Double) {
+
+        val geocoder = Geocoder(requireActivity(), Locale.getDefault())
+        val addresses: List<Address>?
+        val address: Address?
+        var fulladdress = ""
+
+        addresses = geocoder.getFromLocation(latitude, longitude, 1)
+//        Toast.makeText(this, addresses.toString(), Toast.LENGTH_LONG).show()
+        if (addresses.isNotEmpty()) {
+            address = addresses[0]
+            fulladdress = address.getAddressLine(0) // If any additional address line present than only, check with max available address lines by getMaxAddressLineIndex
+            var city = address.getLocality();
+            var state = address.getAdminArea();
+            var country = address.getCountryName();
+            var postalCode = address.getPostalCode();
+            var knownName = address.getFeatureName(); // Only if available else return NULL
+            home_loc.text = state + ", " + country
+        }else{
+            home_loc.text = "Location not found"
+        }
     }
 }
