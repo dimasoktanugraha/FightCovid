@@ -26,6 +26,10 @@ class HomeFragment: Fragment() {
     var firebaseUser: FirebaseUser? = null
     private lateinit var viewModel: HomeViewModel
 
+    var positifGlobal = ""
+    var sembuhGlobal = ""
+    var matiGlobal = ""
+
     companion object{
         fun newInstance() : HomeFragment{
             return HomeFragment()
@@ -96,11 +100,27 @@ class HomeFragment: Fragment() {
                     StatusResponse.SUCCESS -> {
 
                         val indoData = data.body!![0]
-                        indo_death.text = indoData.meninggal
-                        indo_heal.text = indoData.sembuh
-                        indo_positif.text = indoData.positif
-//                        val total = indoData.meninggal.toInt()+indoData.sembuh.toInt()+indoData.positif.toInt()
-//                        indo_total.text = total.toString()
+
+                        var positif = indoData.positif
+                        var sembuh = indoData.sembuh
+                        var mati = indoData.meninggal
+
+                        if (positif.contains(",")){
+                            positif = positif.replace(",","",false)
+                        }
+                        if (sembuh.contains(",")){
+                            sembuh = sembuh.replace(",","",false)
+                        }
+                        if (mati.contains(",")){
+                            mati = mati.replace(",","",false)
+                        }
+
+                        indo_death.text = mati
+                        indo_heal.text = sembuh
+                        indo_positif.text = positif
+
+                        val total = mati.toInt()+sembuh.toInt()+positif.toInt()
+                        indo_total.text = total.toString()
 
                         getDataGlobalPositif()
                     }
@@ -123,7 +143,11 @@ class HomeFragment: Fragment() {
 
                     }
                     StatusResponse.SUCCESS -> {
-                        global_positif.text = data.body!!.value
+                        positifGlobal = data.body!!.value
+                        if (positifGlobal.contains(",")){
+                            positifGlobal = positifGlobal.replace(",","")
+                        }
+                        global_positif.text = positifGlobal
 
                         getDataGlobalRecovered()
                     }
@@ -146,7 +170,11 @@ class HomeFragment: Fragment() {
 
                     }
                     StatusResponse.SUCCESS -> {
-                        global_heal.text = data.body!!.value
+                        sembuhGlobal = data.body!!.value
+                        if (sembuhGlobal.contains(",")){
+                            sembuhGlobal = sembuhGlobal.replace(",","")
+                        }
+                        global_heal.text = sembuhGlobal
                         getDataGlobalDied()
                     }
                     StatusResponse.EMPTY -> {
@@ -171,7 +199,15 @@ class HomeFragment: Fragment() {
                         indo_container.visibility = View.VISIBLE
                         all_container.visibility = View.VISIBLE
 
-                        global_death.text = data.body!!.value
+                        matiGlobal = data.body!!.value
+                        if (matiGlobal.contains(",")){
+                            matiGlobal = matiGlobal.replace(",","")
+                        }
+                        global_death.text = matiGlobal
+
+                        val total = matiGlobal.toInt()+sembuhGlobal.toInt()+positifGlobal.toInt()
+                        global_total.text = total.toString()
+
                         home_shimmer.stopShimmerAnimation()
                         home_shimmer.visibility = View.GONE
                     }

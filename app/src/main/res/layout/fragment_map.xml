@@ -11,7 +11,7 @@
         android:layout_height="@dimen/_140sdp"
         android:paddingTop="@dimen/_10sdp"
         android:paddingBottom="@dimen/_10sdp"
-        android:src="@drawable/ic_sum_aceh_full"
+        tools:src="@drawable/ic_sum_aceh_full"
         android:background="@color/colorPrimaryDark"
         android:scaleType="fitCenter"
         app:layout_constraintTop_toTopOf="parent"
@@ -22,11 +22,21 @@
         android:id="@+id/map_detail"
         android:layout_width="@dimen/_150sdp"
         android:layout_height="@dimen/_150sdp"
-        android:src="@drawable/ic_sum_aceh"
+        tools:src="@drawable/ic_sum_aceh"
         android:layout_marginTop="@dimen/_10sdp"
         app:layout_constraintTop_toBottomOf="@id/map_top"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
+
+    <ProgressBar
+        android:id="@+id/progress_map"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_80sdp"
+        android:indeterminateTint="@color/colorPrimaryDark"
+        app:layout_constraintTop_toTopOf="@id/map_detail"
+        app:layout_constraintBottom_toBottomOf="@id/map_detail"
+        app:layout_constraintLeft_toLeftOf="@id/map_detail"
+        app:layout_constraintRight_toRightOf="@id/map_detail"/>
 
     <ImageView
         android:id="@+id/map_previous"

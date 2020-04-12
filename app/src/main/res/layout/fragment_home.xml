@@ -324,7 +324,7 @@
                 android:layout_height="wrap_content"
                 tools:text="20"
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/_20ssp"
+                android:textSize="@dimen/_18ssp"
                 app:layout_constraintTop_toBottomOf="@id/global_heal_title"
                 app:layout_constraintStart_toStartOf="@id/global_heal_title"
                 app:layout_constraintEnd_toEndOf="@id/global_heal_title"/>
@@ -348,7 +348,7 @@
                 android:layout_height="wrap_content"
                 tools:text="20"
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/_20ssp"
+                android:textSize="@dimen/_18ssp"
                 app:layout_constraintTop_toBottomOf="@id/global_positif_title"
                 app:layout_constraintStart_toStartOf="@id/global_positif_title"
                 app:layout_constraintEnd_toEndOf="@id/global_positif_title"/>
@@ -371,7 +371,7 @@
                 android:layout_height="wrap_content"
                 tools:text="20"
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/_20ssp"
+                android:textSize="@dimen/_18ssp"
                 app:layout_constraintTop_toBottomOf="@id/global_death_title"
                 app:layout_constraintStart_toStartOf="@id/global_death_title"
                 app:layout_constraintEnd_toEndOf="@id/global_death_title"/>
@@ -394,7 +394,7 @@
                 android:layout_height="wrap_content"
                 tools:text="20"
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/_20ssp"
+                android:textSize="@dimen/_18ssp"
                 app:layout_constraintTop_toBottomOf="@id/global_total_title"
                 app:layout_constraintStart_toStartOf="@id/global_total_title"
                 app:layout_constraintEnd_toEndOf="@id/global_total_title"/>
@@ -460,7 +460,7 @@
                 android:layout_height="wrap_content"
                 tools:text="20"
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/_20ssp"
+                android:textSize="@dimen/_18ssp"
                 app:layout_constraintTop_toBottomOf="@id/indo_heal_title"
                 app:layout_constraintStart_toStartOf="@id/indo_heal_title"
                 app:layout_constraintEnd_toEndOf="@id/indo_heal_title"/>
@@ -484,7 +484,7 @@
                 android:layout_height="wrap_content"
                 tools:text="20"
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/_20ssp"
+                android:textSize="@dimen/_18ssp"
                 app:layout_constraintTop_toBottomOf="@id/indo_positif_title"
                 app:layout_constraintStart_toStartOf="@id/indo_positif_title"
                 app:layout_constraintEnd_toEndOf="@id/indo_positif_title"/>
@@ -507,7 +507,7 @@
                 android:layout_height="wrap_content"
                 tools:text="20"
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/_20ssp"
+                android:textSize="@dimen/_18ssp"
                 app:layout_constraintTop_toBottomOf="@id/indo_death_title"
                 app:layout_constraintStart_toStartOf="@id/indo_death_title"
                 app:layout_constraintEnd_toEndOf="@id/indo_death_title"/>
@@ -530,7 +530,7 @@
                 android:layout_height="wrap_content"
                 tools:text="20"
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/_20ssp"
+                android:textSize="@dimen/_18ssp"
                 app:layout_constraintTop_toBottomOf="@id/indo_total_title"
                 app:layout_constraintStart_toStartOf="@id/indo_total_title"
                 app:layout_constraintEnd_toEndOf="@id/indo_total_title"/>

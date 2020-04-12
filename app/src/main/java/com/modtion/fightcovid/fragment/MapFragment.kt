@@ -8,19 +8,21 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
 import com.modtion.fightcovid.R
-import com.modtion.fightcovid.model.Province
 import com.modtion.fightcovid.model.ProvinceAttribut
 import com.modtion.fightcovid.model.ProvinceData
 import com.modtion.fightcovid.response.StatusResponse
-import com.modtion.fightcovid.viewmodel.HomeViewModel
 import com.modtion.fightcovid.viewmodel.MapViewModel
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.fragment_map.*
 
 class MapFragment: Fragment() {
 
     private lateinit var viewModel: MapViewModel
     private var provinceList: MutableList<ProvinceData> = mutableListOf()
+    private var dataSize = 0
+    private var dataCount = 0
 //    private var provinceList: List<ProvinceData> = ArrayList()
 
     companion object{
@@ -43,22 +45,40 @@ class MapFragment: Fragment() {
             if (data != null) {
                 when (data.status) {
                     StatusResponse.LOADING -> {
-
+                        progress_map.visibility = View.VISIBLE
                     }
                     StatusResponse.SUCCESS -> {
+                        progress_map.visibility = View.GONE
                         if(data.body!=null){
                             initData(data.body)
                         }
                     }
                     StatusResponse.EMPTY -> {
-
+                        progress_map.visibility = View.GONE
                     }
                     StatusResponse.ERROR -> {
+                        progress_map.visibility = View.GONE
                         Toast.makeText(activity, data.message, Toast.LENGTH_SHORT).show()
                     }
                 }
             }
         })
+
+        map_previous.setOnClickListener {
+            dataCount--
+            if (dataCount==-1){
+                dataCount=dataSize-1
+            }
+            setData()
+        }
+
+        map_next.setOnClickListener {
+            dataCount++
+            if (dataCount==dataSize){
+                dataCount=0
+            }
+            setData()
+        }
     }
 
     private fun initData(body: List<ProvinceAttribut>) {
@@ -77,5 +97,17 @@ class MapFragment: Fragment() {
         }
         mapFull.recycle()
         mapDetail.recycle()
+
+        dataSize = provinceList.size
+        setData()
+    }
+
+    private fun setData() {
+        map_top.setImageResource(provinceList[dataCount].mapFull)
+        map_detail.setImageResource(provinceList[dataCount].mapDetail)
+        map_name.text = provinceList[dataCount].name
+        province_heal.text = provinceList[dataCount].recovered.toString()
+        province_positif.text = provinceList[dataCount].positif.toString()
+        province_died.text = provinceList[dataCount].died.toString()
     }
 }
