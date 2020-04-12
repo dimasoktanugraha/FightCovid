@@ -13,4 +13,10 @@
         android:title="Map"
         />
 
+    <item
+        android:id="@+id/nav_web"
+        android:icon="@drawable/ic_nav_map"
+        android:title="Website"
+        />
+
 </menu>

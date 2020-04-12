@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import com.modtion.fightcovid.R
 import com.modtion.fightcovid.fragment.MapFragment
 import com.modtion.fightcovid.fragment.HomeFragment
+import com.modtion.fightcovid.fragment.WebsiteFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -23,6 +24,9 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.nav_map ->{
                     loadFragment(savedInstanceState, MapFragment())
+                }
+                R.id.nav_web ->{
+                    loadFragment(savedInstanceState, WebsiteFragment())
                 }
             }
             true
