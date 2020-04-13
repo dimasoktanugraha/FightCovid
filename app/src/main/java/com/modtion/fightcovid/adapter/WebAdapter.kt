@@ -19,7 +19,8 @@ class WebAdapter(private val items: List<WebModel>, private val listener: (WebMo
 
     class WebViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bindItem(items: WebModel, listener: (WebModel) -> Unit) {
-
+            item_city.text = items.city
+            item_web.text = items.website
             itemView.setOnClickListener {
                 listener(items)
             }
