@@ -30,13 +30,14 @@ class WebsiteActivity : AppCompatActivity() {
             url = intent.getStringExtra(WEB_URL)
         }
 
-        chat_webview.getSettings().setJavaScriptEnabled(true)
-        chat_webview.setWebViewClient(object : WebViewClient() {
+        chat_webview.settings.javaScriptEnabled = true
+        chat_webview.webViewClient = object : WebViewClient() {
             override fun onPageFinished(view: WebView, url: String) {
                 view.loadUrl("javascript:alert('chatbot berhasil dimuat')")
+                progress_web.visibility = View.GONE
             }
-        })
-        chat_webview.setWebChromeClient(object : WebChromeClient() {
+        }
+        chat_webview.webChromeClient = object : WebChromeClient() {
             override fun onJsAlert(
                 view: WebView,
                 url: String,
@@ -47,7 +48,7 @@ class WebsiteActivity : AppCompatActivity() {
                 result.confirm()
                 return true
             }
-        })
+        }
         chat_webview.loadUrl(url)
     }
 
