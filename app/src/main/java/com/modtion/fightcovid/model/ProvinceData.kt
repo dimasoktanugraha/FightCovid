@@ -6,5 +6,6 @@ data class ProvinceData (
     val mapDetail: Int,
     val positif: Int,
     val recovered: Int,
-    val died: Int
+    val died: Int,
+    val hospital: List<Hospital>
 )

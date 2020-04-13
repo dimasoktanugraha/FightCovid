@@ -258,6 +258,46 @@ class HospitalData {
                 list.add(Hospital("Rumkit Tk. II/Udayana Denpasar","Alamat Jl. Jend. Sudirman No.1, Dangin Puri Klod, Kec. Denpasar Tim., Kota Denpasar, Bali 80232","Telepon (0361) 228068RSUP Sanglah Denpasar"))
                 list.add(Hospital("RSUP Sanglah Denpasar","Alamat Jl. Diponegoro Denpasar, Bali","Telepon (0361) 227911 - 15"))
             }
+            "Kalimantan Barat" -> {
+                list.add(Hospital("Rumkit Tk. IV/Singkawang","Alamat Jl. R.A. Kartini No.47, Sekip Lama, Singkawang Tengah, Kota Singkawang, Kalimantan Barat 79113","Telepon 0812-8589-6364"))
+                list.add(Hospital("RSU Dr Abdul Azis Singkawang","Alamat Jl. Dr. Soetomo No. 28, Pasiran - Singkawang","Telepon (0562) 631798"))
+                list.add(Hospital("Tk III Pontianak","Alamat Jalan K. S. Tubun No.14, RT.03/RW.01, Akcaya, Kec. Pontianak Sel., Kota Pontianak, Kalimantan Barat 78121","Telepon (0561) 736610"))
+                list.add(Hospital("RSUD Dr. Sudarso","Alamat Jl. dr.Soedarso No.1 Pontianak","Telepon (0561) 737701"))
+                list.add(Hospital("Rumkit Tk. II/Kartika Husada Pontianak","Alamat Jl. Adi Sucipto KM.6,5, Sungai Raya, Kubu Raya, Kabupaten Kubu Raya, Kalimantan Barat 78117","Telepon (0561) 721391"))
+                list.add(Hospital("RSAU-3 DR. M. SUTOMO LANUD SPO","Alamat Limbung, Sungai Raya, Limbung, Kec. Sungai Raya, Kabupaten Kubu Raya, Kalimantan Barat 78391",""))
+                list.add(Hospital("RSUD Dr. Agoesdjam Ketapang","Alamat Jl. D.I Panjaitan No.51 Kel.Sampit, Kec.Delta Pawan Ketapang","Telepon (0534) 3037239"))
+                list.add(Hospital("Rumkit Tk. IV/Sintang","Alamat Jalan MT. Haryono KM. 03, Kapuas Kanan Hulu, Kecamatan Sintang, Kapuas Kanan Hulu, Kec. Sintang, Kabupaten Sintang, Kalimantan Barat 78613","Telepon 0823-5207-8510"))
+                list.add(Hospital("RSUD Ade Mohammad Djoen Sintang","Alamat Jl. YC Oevang Oeray No.1 Sintang Kota","Telepon (0565) 21002"))
+            }
+            "Kalimantan Tengah" -> {
+                list.add(Hospital("RSUD Sultan Imanuddin Pangkalan Bun","Alamat Jl. Sutan Syahrir 17 Pangkalan Bun","Telepon (0532) 21404"))
+                list.add(Hospital("RSU Dr Murjani Sampit","Alamat Jl. H M Arsyad No. 65, Sampit","Telepon (0531) 21010"))
+                list.add(Hospital("RSI PKU Muhammadiyah Palangkaraya","Alamat Jl. RTA Milono km. 2,5. Palangka Raya, Kalimantan Tengah. Indonesia","Telp (0536) 3244802, 3244801 , 3244803"))
+                list.add(Hospital("RSU Dr. Doris Sylvanus","Alamat Jl. Tambun Bungai No. 4, Palangkaraya","Telepon (0536) 3224695 , 3229194"))
+                list.add(Hospital("TK III Palangkaraya","Alamat Jl. Ahmad Yani No.22, Langkai, Kec. Pahandut, Kota Palangka Raya, Kalimantan Tengah 73111",""))
+            }
+            "Kalimantan Selatan" -> {
+                list.add(Hospital("Rumkit Tk. III/dr. Soeharso Banjarmasin","Alamat Jl. Mayjen Sutoyo S, Pelambuan, Kec. Banjarmasin Bar., Kota Banjarmasin, Kalimantan Selatan 70129","Telepon (0511) 4368422"))
+                list.add(Hospital("RSUD Ulin Banjarmasin","Alamat Jl. Jend. A.Yani Km 2.5 Banjarmasin","Telepon (0511) 3252180"))
+                list.add(Hospital("Tk III Banjarmasin","Alamat Jl. Ahmad Yani Kebun Bunga, Kec. Banjarmasin Tim., Kota Banjarmasin, Kalimantan Selatan 70237","Telepon 0813-5022-0436"))
+                list.add(Hospital("RSAU-4 LANUD SAMSUDIN NOOR","Alamat Landasan Ulin Tengah, Liang Anggang, Banjarbaru City, South Kalimantan 70724","Telepon (0511) 4705118"))
+                list.add(Hospital("Rumkit Tk. IV/Guntung Payung","Alamat Jalan A. Yani, Guntungmanggis, Landasan Ulin, Guntungmanggis, Kec. Landasan Ulin, Kota Banjar Baru, Kalimantan Selatan 70721","Telepon (0511) 4785310"))
+                list.add(Hospital("RSUD H. Boejasin Pelaihari","Alamat Jl. Hadji Boejasin No.68A, Angsau, Kab. Tanah Laut","Telepon (0512) 21083 , 22009"))
+            }
+            "Kalimantan Timur" -> {
+                list.add(Hospital("RSU Panglima Sebaya","Alamat Jl. Kusuma Bangsa Km.5 Tanah Grogot, Kab.Paser","Telepon (0543) 24563"))
+                list.add(Hospital("Tk III Balikpapan","Alamat Jl. Jenderal Sudirman No.14, Klandasan Ilir, Balikpapan Sel., Kota Balikpapan, Kalimantan Timur","Telepon (0542) 421261"))
+                list.add(Hospital("Rumkit Tk. II/dr. Hardjanto Balikpapan","Alamat Jl. Tj. Pura No.1, Klandasan Ulu, Balikpapan Kota, Kota Balikpapan, Kalimantan Timur 76111",""))
+                list.add(Hospital("RSU Dr. Kanujoso Djatiwibowo","Alamat Jl. MT Haryono Ring Road, Balikpapan No.656","Telepon (0542) 873901 , 887955 , 887966"))
+                list.add(Hospital("RSAU-4 LANUD DHOMBER BALIKPAPAN","Alamat Jl. Marsma Iswahyudi RT. 41, Sepinggan, Balikpapan Selatan, Sepinggan, Kecamatan Balikpapan Selatan, Kota Balikpapan, Kalimantan Timur 76116","Telepon (0542) 765554"))
+                list.add(Hospital("RSUD Aji Muhammad Parikesit","Alamat Jl. Ratu Agung No. 1 Tenggarong Seberang, Kutai Kartanegraa","Telepon (0541) 661013 , 661015"))
+                list.add(Hospital("Rumkit Tk. IV/Samarinda","Alamat Jl. Jend. Sudirman No.52, Bugis, Kec. Samarinda Kota, Kota Samarinda, Kalimantan Timur 75242","Telepon (0541) 4113679"))
+                list.add(Hospital("RSU Taman Husada Bontang","Alamat Jl. S. Parman No. 01, Kel.Belimbing, Bontang 75331","Telepon (0548) 22111 , (IGD 0548) 23000"))
+            }
+            "Kalimantan Utara" -> {
+                list.add(Hospital("RSAL-3 ILYAS","Alamat Jl. RE Martadinata No.29, Pamusian, Tarakan Tengah, Kota Tarakan, Kalimantan Utara",""))
+                list.add(Hospital("RSU Tanjung Selor","Alamat Jl. Cendrawasih, Tanjung Selor Hilir, Kec.Tanjung Selor, Kab.Bulungan","Telepon (0552) 21118"))
+            }
         }
 
         return list
