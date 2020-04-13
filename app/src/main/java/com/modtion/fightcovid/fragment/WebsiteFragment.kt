@@ -1,5 +1,6 @@
 package com.modtion.fightcovid.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.modtion.fightcovid.R
+import com.modtion.fightcovid.activity.WebsiteActivity
 import com.modtion.fightcovid.adapter.WebAdapter
 import com.modtion.fightcovid.model.WebModel
 import kotlinx.android.synthetic.main.fragment_web.*
@@ -45,7 +47,7 @@ class WebsiteFragment: Fragment() {
         rv_province.layoutManager = LinearLayoutManager(activity)
         rv_province.setHasFixedSize(true)
         rv_province.adapter = WebAdapter(provinceList){
-
+            startActivity(Intent(activity, WebsiteActivity::class.java).putExtra(WebsiteActivity.WEB_URL, it.website))
         }
 
         intCity()
@@ -62,7 +64,7 @@ class WebsiteFragment: Fragment() {
         rv_district.layoutManager = LinearLayoutManager(activity)
         rv_district.setHasFixedSize(true)
         rv_district.adapter = WebAdapter(provinceList){
-
+            startActivity(Intent(activity, WebsiteActivity::class.java).putExtra(WebsiteActivity.WEB_URL, it.website))
         }
     }
 }
