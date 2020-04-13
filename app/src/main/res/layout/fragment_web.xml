@@ -51,7 +51,7 @@
             android:id="@+id/district_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="District"
+            android:text="City"
             android:textAllCaps="true"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/_14ssp"

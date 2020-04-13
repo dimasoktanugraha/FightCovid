@@ -74,4 +74,215 @@
         <item>@drawable/ic_jawa_ntt</item>
         <item>@drawable/ic_sul_gorontalo</item>
     </array>
+
+    <string-array name="web_province_name">
+        <item>Aceh</item>
+        <item>Jakarta</item>
+        <item>Jawa Tengah</item>
+        <item>Kepulauan Riau</item>
+        <item>Riau</item>
+        <item>Sumatra Selatan</item>
+        <item>Bali</item>
+        <item>Jambi</item>
+        <item>Jawa Timur</item>
+        <item>Lampung</item>
+        <item>Sulawesi Selatan</item>
+        <item>Sumatra Utara</item>
+        <item>Banten</item>
+        <item>Jawa Barat</item>
+        <item>Kalimantan Barat</item>
+        <item>NTB</item>
+        <item>Sumatra Barat</item>
+        <item>Yogyakarta</item>
+    </string-array>
+
+    <string-array name="web_province">
+        <item>https://covid19.acehprov.go.id/</item>
+        <item>https://corona.jakarta.go.id/id</item>
+        <item>https://corona.jatengprov.go.id/</item>
+        <item>https://corona.kepriprov.go.id/</item>
+        <item>https://corona.riau.go.id/</item>
+        <item>http://corona.sumselprov.go.id/index.php?module=home&amp;id=1</item>
+        <item>https://infocorona.baliprov.go.id/</item>
+        <item>http://corona.jambiprov.go.id/</item>
+        <item>https://infocovid19.jatimprov.go.id/</item>
+        <item>http://geoportal.lampungprov.go.id/gis/apps/webappviewer/index.html?id=13d5bf1f55d2450eb93ae2a3e1a12ed4</item>
+        <item>https://covid19.sulselprov.go.id/</item>
+        <item>http://covid19.sumutprov.go.id/</item>
+        <item>https://infocorona.bantenprov.go.id/</item>
+        <item>https://pikobar.jabarprov.go.id/</item>
+        <item>https://dinkes.kalbarprov.go.id/covid-19/</item>
+        <item>https://corona.ntbprov.go.id/</item>
+        <item>https://corona.sumbarprov.go.id/</item>
+        <item>https://corona.jogjaprov.go.id/</item>
+    </string-array>
+
+    <string-array name="web_city_name">
+        <item>Kabupaten Agam</item>
+        <item>Kabupaten Bandung Barat</item>
+        <item>Kabupaten Bantul</item>
+        <item>Kabupaten Banyumas</item>
+        <item>Kabupaten Banyuwangi</item>
+        <item>Kabupaten Batang</item>
+        <item>Kabupaten Belitung Timur</item>
+        <item>Kabupaten Blora</item>
+        <item>Kabupaten Bojonegoro</item>
+        <item>Kabupaten Bolang Mongondow</item>
+        <item>Kabupaten Bondowoso</item>
+        <item>Kabupaten Boyolali</item>
+        <item>Kabupaten Brebes</item>
+        <item>Kabupaten Bungo</item>
+        <item>Kabupaten Cianjur</item>
+        <item>Kabupaten Cilacap</item>
+        <item>Kabupaten Cirebon</item>
+        <item>Kabupaten Deli Serdang</item>
+        <item>Kabupaten Demak</item>
+        <item>Kabupaten Gresik</item>
+        <item>Kabupaten Grobongan</item>
+        <item>Kabupaten Jepara</item>
+        <item>Kabupaten Karanganyer</item>
+        <item>Kabupaten Kebumen</item>
+        <item>Kabupaten Kediri</item>
+        <item>Kabupaten Ketapang</item>
+        <item>Kabupaten Klaten</item>
+        <item>Kabupaten Kudus</item>
+        <item>Kabupaten Langkat</item>
+        <item>Kabupaten Lamongan</item>
+        <item>Kabupaten Lebak</item>
+        <item>Kabupaten Lima Puluh Kota</item>
+        <item>Kabupaten Magelang</item>
+        <item>Kabupaten Malang</item>
+        <item>Kabupaten Musi Banyuasin</item>
+        <item>Kabupaten Padang Pariaman</item>
+        <item>Kabupaten Pandeglag</item>
+        <item>Kabupaten Pasaman Barat</item>
+        <item>Kabupaten Pati</item>
+        <item>Kabupaten Pekalongan</item>
+        <item>Kabupaten Pesisir Selatan</item>
+        <item>Kabupaten Probolinggo</item>
+        <item>Kabupaten Purworejo</item>
+        <item>Kabupaten Rembang</item>
+        <item>Kabupaten Semarang</item>
+        <item>Kabupaten Sidoarjo</item>
+        <item>Kabupaten Sijunjung</item>
+        <item>Kabupaten Solok</item>
+        <item>Kabupaten Solok Selatan</item>
+        <item>Kabupaten Sragen</item>
+        <item>Kabupaten Sukoharjo</item>
+        <item>Kabupaten Tanah Datar</item>
+        <item>Kabupaten Tangerang</item>
+        <item>Kabupaten Tegal</item>
+        <item>Kabupaten Tuban</item>
+        <item>Kabupaten Wonosobo</item>
+        <item>Kabupaten Dharmasraya</item>
+        <item>Kota Bandung</item>
+        <item>Kota Batam</item>
+        <item>Kota Bekasi</item>
+        <item>Kota Binjai</item>
+        <item>Kota Bogor</item>
+        <item>Kota Bukittinggi</item>
+        <item>Kota Depok</item>
+        <item>Kota Magelang</item>
+        <item>Kota Makassar</item>
+        <item>Kota Malang</item>
+        <item>Kota Padang</item>
+        <item>Kota Padang Panjang</item>
+        <item>Kota Palembang</item>
+        <item>Kota Payakumbuh</item>
+        <item>Kota Pekalongan</item>
+        <item>Kota Probolinggo</item>
+        <item>Kota Salatiga</item>
+        <item>Kota Semarang</item>
+        <item>Kota Serang</item>
+        <item>Kota Solok</item>
+        <item>Kota Surabaya</item>
+        <item>Kota Tangerang</item>
+        <item>Kota Tebing Tinggi</item>
+        <item>Kota Tegal</item>
+    </string-array>
+
+    <string-array name="web_city">
+        <item>http://covid19.agamkab.go.id/</item>
+        <item>https://pik.bandungbaratkab.go.id/</item>
+        <item>https://corona.bantulkab.go.id/</item>
+        <item>http://covid19.banyumaskab.go.id/</item>
+        <item>https://corona.banyuwangikab.go.id/</item>
+        <item>https://corona.batangkab.go.id/</item>
+        <item>https://corona.belitungtimurkab.go.id/</item>
+        <item>http://corona.blorakab.go.id/</item>
+        <item>http://lawancorona.bojonegorokab.go.id/</item>
+        <item>https://covid19.bolmongkab.go.id/</item>
+        <item>https://dinkes.bondowosokab.go.id/covid-19-center/</item>
+        <item>http://covid19.boyolali.go.id/</item>
+        <item>http://www.corona.brebeskab.go.id/</item>
+        <item>https://covid19.bungokab.go.id/</item>
+        <item>https://covid19.cianjurkab.go.id/</item>
+        <item>https://corona.cilacapkab.go.id/</item>
+        <item>https://covid19.bungokab.go.id/</item>
+        <item>http://covid19.deliserdangkab.go.id/</item>
+        <item>https://corona.demakkab.go.id/</item>
+        <item>https://satgascovid19.gresikkab.go.id/</item>
+        <item>https://corona.grobogan.go.id/</item>
+        <item>http://corona.jepara.go.id/</item>
+        <item>http://covid19.karanganyarkab.go.id/</item>
+        <item>https://corona.kebumenkab.go.id/</item>
+        <item>http://covid19.kedirikab.go.id/</item>
+        <item>https://covid19.ketapangkab.go.id/</item>
+        <item>http://awasicorona.klatenkab.go.id/</item>
+        <item>https://corona.kuduskab.go.id/</item>
+        <item>https://coronainfo.langkatkab.go.id/</item>
+        <item>https://lamongankab.go.id/dinkes/</item>
+        <item>https://siagacovid19.lebakkab.go.id/</item>
+        <item>https://covid19.limapuluhkotakab.go.id/</item>
+        <item>https://infocorona.magelangkab.go.id/</item>
+        <item>http://satgascovid19.malangkab.go.id/btl/</item>
+        <item>https://covid19.mubakab.go.id/</item>
+        <item>https://covid19.padangpariamankab.go.id/</item>
+        <item>http://infocorona.pandeglangkab.go.id/</item>
+        <item>https://corona.pasamanbaratkab.go.id/</item>
+        <item>https://covid19.patikab.go.id/v2/</item>
+        <item>http://corona.pekalongankab.go.id/</item>
+        <item>https://covid19.pesisirselatankab.go.id/</item>
+        <item>https://siagacovid19.probolinggokab.go.id/</item>
+        <item>http://covid19.purworejokab.go.id/</item>
+        <item>https://covid19.rembangkab.go.id/</item>
+        <item>https://corona.semarangkab.go.id/</item>
+        <item>https://covid19.sidoarjokab.go.id/</item>
+        <item>https://covid-19.sijunjung.go.id/</item>
+        <item>https://covid19.solokkab.go.id/</item>
+        <item>https://corona.solokselatankab.go.id/</item>
+        <item>http://corona.sragenkab.go.id/</item>
+        <item>https://corona.sukoharjokab.go.id/</item>
+        <item>http://covid-19.tanahdatar.go.id/</item>
+        <item>http://covid19.tangerangkab.go.id/</item>
+        <item>https://covid19.tegalkab.go.id/</item>
+        <item>https://tubankab.go.id/page/informasi-tentang-virus-corona-covid-19</item>
+        <item>https://corona.wonosobokab.go.id/</item>
+        <item>https://covid19-19.dharmasrayakab.go.id</item>
+        <item>https://covid19.bandung.go.id/</item>
+        <item>https://lawancorona.batam.go.id/</item>
+        <item>https://corona.bekasikota.go.id/</item>
+        <item>hthttp://binjaimelawancovid19.binjaikota.go.id/</item>
+        <item>http://covid19.kotabogor.go.id/</item>
+        <item>https://covid19.bukittinggikota.go.id/</item>
+        <item>https://ccc-19.depok.go.id/</item>
+        <item>https://covid19.magelangkota.go.id/</item>
+        <item>https://infocorona.makassar.go.id/</item>
+        <item>https://coronadetektor.malangkota.go.id/</item>
+        <item>https://kawalcovid19.id/corona.padang.go.id</item>
+        <item>http://corona.padangpanjang.go.id/</item>
+        <item>https://hallo.palembang.go.id/Corona</item>
+        <item>https://covid19.payakumbuhkota.go.id/</item>
+        <item>https://corona.pekalongankota.go.id/</item>
+        <item>https://portal.probolinggokota.go.id/index.php/tanggap-corona</item>
+        <item>https://corona.salatiga.go.id/</item>
+        <item>https://siagacorona.semarangkota.go.id/</item>
+        <item>https://infocorona.serangkota.go.id/</item>
+        <item>https://corona.solokkota.go.id/</item>
+        <item>https://lawancovid-19.surabaya.go.id/</item>
+        <item>https://maps.tangerangkota.go.id/corona/</item>
+        <item>https://covid19.tebingtinggikota.go.id/</item>
+        <item>https://corona.tegalkota.go.id/</item>
+    </string-array>
+
 </resources>
